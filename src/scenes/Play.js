@@ -1,6 +1,6 @@
 class Play extends Phaser.Scene {
     constructor() {
-      super("playScene");
+        super("playScene");
     }
 
     preload() {
@@ -20,7 +20,6 @@ class Play extends Phaser.Scene {
     }
     
     create() {
-
         // place tile sprite
         this.sky = this.add.tileSprite(0, 0, 640, 480, 'sky').setOrigin(0,0);
 
@@ -60,8 +59,6 @@ class Play extends Phaser.Scene {
 
         this.banner1 = this.add.tileSprite(0, 0, 640, 480, 'banner').setScale(0.5, 0.5).setOrigin(0,0);
         this.banner2 = this.add.tileSprite(320, 0, 640, 480, 'banner').setScale(0.5, 0.5).setOrigin(0,0);
-
-        this.sound.play('background');
          
         // add dart (p1)
         this.p1Dart = new Dart(this, game.config.width/2-150, 431, 'dart1').setScale(1.0, 1.0).setOrigin(0,0);

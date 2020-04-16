@@ -8,16 +8,16 @@ class Menu extends Phaser.Scene {
     this.load.audio('sfx_select', './assets/selectBeep.wav');
     this.load.audio('sfx_pop', './assets/popBalloon.wav');
     this.load.audio('sfx_dart', './assets/dartWoosh.wav');
-    this.load.audio('background', './assets/loop-circus.wav');
+    this.load.audio('background', './assets/circus-melody.wav');
     this.load.audio('sfx_cheer', './assets/cheer.wav');
+
+    // load tile Sprite
+    this.load.image('sky', './assets/sky.png');
   }
   
   create() {
-
-    let bgMusic = this.sound.add('background', {loop: true});
-    bgMusic.play();
-    this.scene.start("playScene");
-
+    // place tile sprite
+    this.sky = this.add.tileSprite(0, 0, 640, 480, 'sky').setOrigin(0,0);
 
     // menu display
     let menuConfig = {
@@ -54,7 +54,7 @@ class Menu extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(keyE)) {
       // easy mode
       game.settings = {
-        spaceshipSpeed: 3,
+        balloonSpeed: 3,
         gameTimer: 60000    
       }
       this.sound.play('sfx_select');
@@ -64,7 +64,7 @@ class Menu extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(keyH)) {
       // hard mode
       game.settings = {
-        spaceshipSpeed: 4,
+        balloonSpeed: 4,
         gameTimer: 45000    
       }
       this.sound.play('sfx_select');
